@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import Radium, { StyleRoot } from 'radium';
-
 import logo from './logo.svg';
 import './App.css';
 import Person from './Person/Person';
@@ -68,10 +66,6 @@ class App extends Component {
       border: '2px solid blue',
       padding: '8px',
       cursor: 'pointer',
-      ':hover': {
-        backgroundColor: 'lightgreen',
-        color: 'black'
-      }
     }
     let persons = null;
     if (this.state.showPersons) {
@@ -88,10 +82,7 @@ class App extends Component {
         </div>
       );
       style.backgroundColor = 'red';
-      style[':hover'] = {
-        backgroundColor: 'salmon',
-        color: 'black'
-      };
+
     }
 
     // let classes = ['red', 'bold'].join(' ');
@@ -104,21 +95,21 @@ class App extends Component {
     }
 
     return (
-      <StyleRoot>
-        <div className="App">
-          <h1>Hi I am React App</h1>
-          <p className={classes.join(' ')}>This is really working!</p>
-          {/* <button onClick={this.switchNameHandler.bind(this, 'Maximilian')}>Switch Name</button> */}
-          <button
-            onClick={() => this.togglePersonsHandler()}
-            style={style}>Toggle Persons</button>
-          {persons}
-        </div>
-      </StyleRoot>
+
+      <div className="App">
+        <h1>Hi I am React App</h1>
+        <p className={classes.join(' ')}>This is really working!</p>
+        {/* <button onClick={this.switchNameHandler.bind(this, 'Maximilian')}>Switch Name</button> */}
+        <button
+          onClick={() => this.togglePersonsHandler()}
+          style={style}>Toggle Persons</button>
+        {persons}
+      </div>
+
 
     );
     // return React.createElement('div',{className: 'App'},React.createElement('h1',null,'Does this work now? '));
   }
 }
 
-export default Radium(App);
+export default App;
